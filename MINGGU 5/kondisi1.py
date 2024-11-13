@@ -1,4 +1,4 @@
-nilai = 75
+nilai = 65
 
 if nilai >= 70:
     print("Selamat, Anda lulus!")
