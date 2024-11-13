@@ -10,7 +10,7 @@ def home():
 @app.route('/cuaca', methods=['POST'])
 def cuaca():
     kota = request.form['kota']
-    api_key = 'API_KEY_ANDA'  # Masukkan API Key yang valid dari layanan cuaca, misalnya OpenWeatherMap
+    api_key = '012334c03083d398b22d99b805d58042'  # Masukkan API Key yang valid dari layanan cuaca, misalnya OpenWeatherMap
     url = f"http://api.openweathermap.org/data/2.5/weather?q={kota}&appid={api_key}"
     
     response = requests.get(url)
@@ -19,7 +19,7 @@ def cuaca():
     if response.status_code == 200:
         cuaca = {
             'kota': kota,
-            'suhu': data['main']['temp'],
+            'suhu': data['main']['temp'] / 10,
             'deskripsi': data['weather'][0]['description']
         }
         return render_template('hasil.html', cuaca=cuaca)
