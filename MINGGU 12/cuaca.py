@@ -2,7 +2,7 @@ import requests
 import json
 
 # URL dan parameter API
-city = "Jakarta"
+city = "Bondowoso"
 api_key = "012334c03083d398b22d99b805d58042"  # Gantilah dengan API key Anda dari penyedia layanan cuaca
 url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
 
@@ -13,7 +13,7 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()  # Mengurai data JSON
     main = data['main']
-    temperature = main['temp']
+    temperature = main['temp'] / 10 
     pressure = main['pressure']
     humidity = main['humidity']
 
